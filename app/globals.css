@@ -1,26 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tailwindcss";
 
+/* ==================================================
+   THEME TOKENS
+   Modern Tech Blue — Light & Dark
+================================================== */
+
+/* Light mode (default) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: black;
+  --foreground: #0f172a; /* slate-900 */
+  --muted: white;      /* slate-600 */
+
+  --primary: #059669;    /* blue-600 */
+  --accent: #38bdf8;     /* sky-400 */
+
+  --light-bg: black;   /* slate-50 */
+  --border: #e2e8f0;     /* slate-200 */
+  
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark mode */
+.dark {
+  --background: #020617; /* slate-950 */
+  --foreground: #e5e7eb; /* gray-200 */
+  --muted: #9ca3af;      /* gray-400 */
+
+  --primary: #059669;    /* sky-400 */
+  --accent: #38BDF8;     /* blue-400 */
+
+  --light-bg: #020617;
+  --border: #1e293b;     /* slate-800 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==================================================
+   GLOBAL ELEMENT STYLES
+================================================== */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* Paragraphs */
+p {
+  color: var(--muted);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text selection */
+::selection {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+/* ==================================================
+   SEMANTIC UTILITIES (CLEAN JSX)
+================================================== */
+
+@layer utilities {
+  /* Backgrounds */
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  .bg-light {
+    background-color: var(--light-bg);
+  }
+  .bg-base {
+    background-color: var(--background);
+  }
+
+  /* Text colors */
+  .text-primary {
+    color: var(--primary);
+  }
+  .text-accent {
+    color: var(--accent);
+  }
+  .text-muted {
+    color: var(--muted);
+  }
+  .text-foreground {
+    color: var(--foreground);
+  }
+
+  /* Borders */
+  .border-theme {
+    border-color: var(--border);
+  }
+}
+
+/* ==================================================
+   OPTIONAL UI ENHANCEMENTS
+================================================== */
+
+/* Smooth transitions for theme changes */
+* {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
