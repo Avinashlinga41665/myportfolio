@@ -1,51 +1,70 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faInstagram,faFacebook,faLinkedin,faYoutube} from "@fortawesome/free-brands-svg-icons";
-
 export default function HomeSection() {
   return (
-<section
-  id="home"
-  className="bg-light px-6 md:px-20 lg:px-40 pt-50 pb-20"
->
-  <div className="max-w-6xl mx-auto">
-     <p className="text-xl font-semibold text-accent mb-1">
-        Hello,
-      </p>
+    <section id="home" className="relative bg-body pt-32 pb-24 min-h-[90vh] overflow-hidden gap-10">
+      <div
+        className="mx-auto max-w-7xl grid lg:grid-cols-[1fr_1fr] gap-12
+                   px-6 md:px-12 lg:px-20 items-center"
+      >
+        {/* LEFT: TEXT */}
+        <div className="max-w-xl">
+          <p className="text-md font-medium text-muted mb-2">
+            Hi, I’m
+          </p>
 
-      <p className="text-3xl md:text-4xl font-medium text-foreground mb-1">
-        I'm <span className="font-bold">Avinash</span>
-      </p>
+          <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-3">
+            Avinash
+          </h1>
 
-      <p className="text-lg font-medium text-muted mb-2">
-        Designing clean, modern websites that turn ideas into experiences.
-      <br/>Built for performance, clarity, and real-world impact.
-      </p>
+          <h2 className="text-xl md:text-2xl font-medium text-foreground mb-4">
+            Software Engineer
+          </h2>
 
-      <div className="pt-10 flex items-center gap-10">
-        <button className="px-10 py-3 bg-primary text-white rounded-3xl hover:text-foreground  transition font-medium">
-          Get Your Website
-        </button>
-        <button className="px-10 py-3 bg-primary text-white rounded-3xl hover:text-foreground transition font-medium">
-          Get Your Project
-        </button>
+          <p className="text-base md:text-lg text-muted leading-relaxed">
+            I build clean, scalable applications with a strong focus on
+            performance, usability, and maintainable design.
+          </p>
 
-        <div className="flex gap-6 text-2xl text-muted">
-          <a href="#" className="hover:text-foreground transition">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="#" className="hover:text-foreground transition">
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-          <a href="#" className="hover:text-foreground transition">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-          <a href="#" className="hover:text-foreground transition">
-            <FontAwesomeIcon icon={faYoutube} />
-          </a>
+          <div className="mt-10 flex items-center gap-6">
+            <a
+              href="#work"
+              className="inline-flex items-center justify-center rounded-lg
+                         bg-[var(--primary)] px-6 py-3 text-white font-medium
+                         shadow-sm hover:bg-[#4F46E5]/90 transition"
+            >
+              View Work
+            </a>
+
+            <a
+              href="#resume"
+              className="text-foreground font-medium hover:text-primary transition"
+            >
+              Resume →
+            </a>
+          </div>
         </div>
-      </div>
+
+       {/* RIGHT: IMAGE */}
+<div className="relative hidden lg:block pl-10">
+<div className="absolute right-[-10vw] h-full w-[50vw] flex items-center justify-center">
+    <img
+      src="/content.png"
+      alt="Avinash"
+      className="
+        w-full
+        h-[85vh]
+        object-contain
+        translate-y-10
+      "
+      style={{
+        filter: "drop-shadow(0 30px 40px rgba(0,0,0,0.18))",
+      }}
+    />
+  </div>
+</div>
+
+
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import "@/lib/fontawesome";
-
+import Navbar from "@/components/Navbar";
 /* Fonts */
 const inter = Inter({
   subsets: ["latin"],
@@ -31,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} antialiased min-h-screen flex flex-col`}
       >
+        <Navbar/>
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

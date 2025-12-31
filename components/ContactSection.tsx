@@ -72,7 +72,7 @@ export default function ContactSection() {
     <input type="text" name="name" placeholder="Your name" className="w-full bg-white text-foreground border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-white/30 transition"/>
     <input type="email" name="email" placeholder="Your email" className=" w-full bg-white text-foreground border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-white/30 transition"/>
     <textarea rows={4} name="message" placeholder="Tell me about your project" className="w-full bg-white text-foreground border border-white/10 rounded-xl px-4 py-3 resize-none focus:outline-none focus:border-white/30 transition"/>
-    <button type="submit" className=" px-8 py-3 bg-primary text-black rounded-3xl font-medium hover:opacity-90 transition">
+    <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-[var(--primary)] px-6 py-3 text-white font-medium shadow-sm hover:bg-[#4F46E5]/90 hover:shadow-md transition">
       Send Message
     </button>
   </form>

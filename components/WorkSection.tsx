@@ -1,11 +1,17 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { projects } from "@/data/projects";
+
 export default function WorkSection() {
+  const router = useRouter();
+
   return (
     <section
       id="work"
       className="bg-light px-6 md:px-20 lg:px-40 pt-32 pb-20"
     >
       <div className="max-w-6xl mx-auto">
-
         {/* SECTION HEADER */}
         <div className="max-w-xl mb-16">
           <p className="text-3xl md:text-4xl font-medium text-foreground mb-2">
@@ -19,46 +25,26 @@ export default function WorkSection() {
 
         {/* WORK GRID */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {[
-            {
-              title: "Business Website (MVC)",
-              desc: "Full-stack MVC website with authentication and database integration.",
-            },
-            {
-              title: "Photography Portfolio",
-              desc: "Modern portfolio website with galleries and pricing sections.",
-            },
-            {
-              title: "Desktop Application",
-              desc: "Windows-based desktop tool for internal workflows.",
-            },
-            {
-              title: "Mobile Application",
-              desc: "Simple mobile app built for real-world usage.",
-            },
-          ].map((project) => (
+          {projects.map((project) => (
             <div
-              key={project.title}
-              className="
-                border border-white/10 rounded-2xl p-6 bg-primary
-                transition-all duration-300
-                hover:scale-[1.03]
-                hover:border-white/30
-              "
+              key={project.slug}
+              onClick={() => router.push(`/work/${project.slug}`)}
+              className="rounded-2xl p-6 bg-surface border border-theme transition hover:-translate-y-1 hover:shadow-xl cursor-pointer"
             >
-              {/* Image placeholder */}
-              <div className="h-40 rounded-xl bg-black/30 mb-4" />
+              {/* Image / Preview */}
+              <div className="h-40 rounded-xl bg-black/10 mb-4 flex items-center justify-center text-sm text-muted">
+                Preview
+              </div>
 
               <h3 className="font-semibold text-lg text-foreground mb-2">
                 {project.title}
               </h3>
-              <p className="text-sm text-accent leading-relaxed">
-                {project.desc}
+
+              <p className="text-sm text-muted leading-relaxed">
+                {project.shortDesc}
               </p>
             </div>
           ))}
-
         </div>
       </div>
     </section>

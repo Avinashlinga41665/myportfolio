@@ -4,36 +4,40 @@
 @import "tailwindcss";
 
 /* ==================================================
-   THEME TOKENS
-   Modern Tech Blue — Light & Dark
+   DESIGN SYSTEM — CLEAN & PROFESSIONAL
 ================================================== */
-
-/* Light mode (default) */
+/* ---------- Light Mode ---------- */
 :root {
-  --background: black;
-  --foreground: #0f172a; /* slate-900 */
-  --muted: white;      /* slate-600 */
+  /* Layout surfaces */
+  --background: #E2ECFF;        /* page body */
+  --surface: #FFFFFF;          /* navbar, footer, cards */
+  --surface-muted: #f1f5f9;    /* subtle sections */
 
-  --primary: #059669;    /* blue-600 */
-  --accent: #38bdf8;     /* sky-400 */
+  /* Text */
+  --foreground: #0f172a;       /* main headings */
+  --muted: #475569;            /* paragraphs */
 
-  --light-bg: black;   /* slate-50 */
-  --border: #e2e8f0;     /* slate-200 */
-  
+  /* Brand */
+  --primary: #4F46E5;          /* professional blue */
+
+  /* UI */
+  --border: #e5e7eb;
 }
 
-/* Dark mode */
+/* ---------- Dark Mode ---------- */
 .dark {
-  --background: #020617; /* slate-950 */
-  --foreground: #e5e7eb; /* gray-200 */
-  --muted: #9ca3af;      /* gray-400 */
+  --background: #020617;
+  --surface: #020617;
+  --surface-muted: #020617;
 
-  --primary: #059669;    /* sky-400 */
-  --accent: #38BDF8;     /* blue-400 */
+  --foreground: #e5e7eb;
+  --muted: #94a3b8;
 
-  --light-bg: #020617;
-  --border: #1e293b;     /* slate-800 */
+  --primary: #60a5fa;
+
+  --border: #1e293b;
 }
+
 
 /* ==================================================
    GLOBAL ELEMENT STYLES
@@ -51,6 +55,12 @@ body {
   line-height: 1.6;
 }
 
+.shadow {
+  box-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.05),
+    0 6px 20px rgba(15, 23, 42, 0.06);
+}
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", system-ui, sans-serif;
@@ -61,21 +71,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Paragraphs */
 p {
   color: var(--muted);
-}
-
-/* Links */
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-/* Buttons */
-button {
-  font-family: inherit;
 }
 
 /* Images */
@@ -92,36 +87,30 @@ img {
 }
 
 /* ==================================================
-   SEMANTIC UTILITIES (CLEAN JSX)
+   SEMANTIC UTILITIES (SAFE)
 ================================================== */
 
 @layer utilities {
   /* Backgrounds */
-  .bg-primary {
-    background-color: var(--primary);
-  }
-  .bg-accent {
-    background-color: var(--accent);
-  }
-  .bg-light {
-    background-color: var(--light-bg);
-  }
   .bg-base {
     background-color: var(--background);
   }
-
-  /* Text colors */
-  .text-primary {
-    color: var(--primary);
+  .bg-surface {
+    background-color: var(--surface);
   }
-  .text-accent {
-    color: var(--accent);
+  .bg-muted {
+    background-color: var(--surface-muted);
+  }
+
+  /* Text */
+  .text-foreground {
+    color: var(--foreground);
   }
   .text-muted {
     color: var(--muted);
   }
-  .text-foreground {
-    color: var(--foreground);
+  .text-primary {
+    color: var(--primary);
   }
 
   /* Borders */
@@ -131,10 +120,9 @@ img {
 }
 
 /* ==================================================
-   OPTIONAL UI ENHANCEMENTS
+   MICRO POLISH
 ================================================== */
 
-/* Smooth transitions for theme changes */
 * {
   transition:
     background-color 0.2s ease,
