@@ -18,9 +18,8 @@ export default function HomeSection() {
             Software Engineer
           </h2>
 
-          <p className="text-base md:text-lg text-muted leading-relaxed">
-            I build clean, scalable applications with a strong focus on
-            performance, usability, and maintainable design.
+           <p className="text-base md:text-lg text-muted leading-relaxed">
+            Frontend-focused software engineer who builds complete, production-ready applications — from UI to APIs and databases.
           </p>
 
           <div className="mt-10 flex items-center gap-6">
@@ -29,7 +28,7 @@ export default function HomeSection() {
             </a>
 
             <a href="#resume" className="text-foreground font-medium hover:text-primary transition">
-              Resume →
+              Download Resume →
             </a>
           </div>
         </div>

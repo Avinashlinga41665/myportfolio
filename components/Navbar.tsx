@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -16,18 +16,48 @@ export default function Navbar() {
       router.push(`/#${id}`);
     }
   };
+  const [active, setActive] = useState<string>("home");
+   const linkClass = (id: string) =>
+  `relative text-lg transition-all duration-300 ${
+    active === id
+      ? "text-foreground hover:scale-105 font-semibold before:content-['{'] after:content-['}'] before:mr-1 after:ml-1 after:bg-primary"
+      : "text-muted hover:text-foreground hover:scale-105"
+  }`;
+
+useEffect(() => {
+  const sections = ["home", "about", "work", "contact"];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    },
+    {
+      rootMargin: "-40% 0px -40% 0px", // center of viewport
+    }
+  );
+ 
+
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  return () => observer.disconnect();
+}, []);
+
 
   return (
         <>
-    <nav className="fixed top-0 z-50 w-full bg-surface shadow">
+    <nav className="fixed top-0 z-50 w-full h-20 bg-surface shadow backdrop-blur-md bg-white/75">
       <div className="mx-auto max-w-3xl px-6 md:px-12">
         <div className="flex h-[68px] items-center justify-between">
 
           {/* LEFT: Logo + Name */}
-          <button
-            onClick={() => goToSection("home")}
-            className="flex items-center gap-2 text-xl transition-transform duration-300 hover:scale-110"
-          >
+          <button onClick={() => goToSection("home")} className="flex items-center gap-2 text-xl pr-10 transition-transform duration-300 hover:scale-105">
             <img
               src="/logo.png"
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
@@ -37,40 +67,27 @@ export default function Navbar() {
           </button>
 
           {/* RIGHT: Navigation */}
-          <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <ul className="hidden md:flex pl-20 items-center gap-8 text-sm font-medium">
             <li>
-              <button
-                onClick={() => goToSection("home")}
-                className="text-lg text-muted hover:text-foreground transition-colors"
-              >
+              <button onClick={() => goToSection("home")} className={linkClass("home")}>
                 Home
               </button>
             </li>
             <li>
-              <button
-                onClick={() => goToSection("about")}
-                className="text-lg text-muted hover:text-foreground transition-colors"
-              >
+              <button onClick={() => goToSection("about")} className={linkClass("about")}>
                 About
               </button>
             </li>
             <li>
-              <button
-                onClick={() => goToSection("work")}
-                className="text-lg text-muted hover:text-foreground transition-colors"
-              >
+              <button onClick={() => goToSection("work")} className={linkClass("work")}>
                 Work
               </button>
             </li>
-            <li>
-              <button
-                onClick={() => router.push("/resume")}
-                className="text-lg text-primary hover:underline transition-colors"
-              >
-                Resume
-              </button>
-            </li>
           </ul>
+          <div className="hidden md:flex items-center gap-4 whitespace-nowrap">
+          <button onClick={() => router.push("/resume")} className="pl-10 py-2 rounded-lg bg-primary text-primary hover:opacity-90 hover:scale-105">View Resume</button>
+          <button onClick={() => goToSection("contact")} className="px-4 py-2 rounded-lg bg-primary text-primary hover:opacity-90 hover:scale-105">Let’s Talk</button>
+          </div>
            {/* Mobile Hamburger */}
             <button
               className="md:hidden"
