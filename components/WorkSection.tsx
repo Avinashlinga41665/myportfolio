@@ -33,7 +33,7 @@ export default function WorkSection() {
             >
               {/* Image / Preview */}
               <div className="h-40 rounded-xl bg-black/10 mb-4 flex items-center justify-center text-sm text-muted">
-                Preview
+                <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover"/>
               </div>
 
               <h3 className="font-semibold text-lg text-foreground mb-2">

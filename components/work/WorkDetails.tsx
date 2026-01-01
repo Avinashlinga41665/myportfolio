@@ -27,21 +27,18 @@ export default function WorkDetails({ project }: Props) {
           {project.title}
         </h1>
         <p className="text-muted">
-          {project.status === "demo" && "🧪 Demo Project"}
+          {project.status}
         </p>
       </div>
 
       {/* Images */}
-      <div className="grid md:grid-cols-2 gap-6 mb-12">
-        {project.images.map((img) => (
-          <div
-            key={img}
-            className="h-60 bg-black/10 rounded-xl flex items-center justify-center text-muted"
-          >
-            Image
-          </div>
-        ))}
-      </div>
+    <div className="grid md:grid-cols-2 gap-6 mb-12 ">
+         {project.images.slice(1, 3).map((img) => (
+      <div key={img}className="relative h-60 rounded-xl overflow-hidden hover:z-10 hover:scale-125 transition-transform duration-300 ease-out">
+      <img src={img} alt={project.title} className="w-full h-full object-cover"/>
+    </div>
+             ))}
+    </div>
 
       {/* Description */}
       <p className="text-lg text-foreground mb-10 max-w-3xl">
@@ -72,6 +69,12 @@ export default function WorkDetails({ project }: Props) {
           ))}
         </ul>
       </div>
+      {project.liveUrl && (
+  <a href="https://demo-photography-website.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 text-primary font-medium hover:underline">
+  View Live Website
+  <span aria-hidden>→</span>
+</a>)}
+
     </section>
   );
 }

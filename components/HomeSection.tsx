@@ -2,11 +2,8 @@
 
 export default function HomeSection() {
   return (
-    <section id="home" className="relative bg-body pt-32 pb-24 min-h-[90vh] overflow-hidden gap-10">
-      <div
-        className="mx-auto max-w-7xl grid lg:grid-cols-[1fr_1fr] gap-12
-                   px-6 md:px-12 lg:px-20 items-center"
-      >
+    <section id="home" className="relative bg-body overflow-hidden gap-10 pt-24 pb-16 lg:pt-32 lg:pb-24 lg:min-h-[90vh]">
+      <div className="mx-auto max-w-7xl grid lg:grid-cols-[1fr_1fr] gap-12 px-6 md:px-12 lg:px-20 items-center">
         {/* LEFT: TEXT */}
         <div className="max-w-xl">
           <p className="text-md font-medium text-muted mb-2">
@@ -27,19 +24,11 @@ export default function HomeSection() {
           </p>
 
           <div className="mt-10 flex items-center gap-6">
-            <a
-              href="#work"
-              className="inline-flex items-center justify-center rounded-lg
-                         bg-[var(--primary)] px-6 py-3 text-white font-medium
-                         shadow-sm hover:bg-[#4F46E5]/90 transition"
-            >
+            <a href="#work" className="inline-flex items-center justify-center rounded-lg bg-[var(--primary)] px-6 py-3 text-white font-medium shadow-sm hover:bg-[#4F46E5]/90 transition">
               View Work
             </a>
 
-            <a
-              href="#resume"
-              className="text-foreground font-medium hover:text-primary transition"
-            >
+            <a href="#resume" className="text-foreground font-medium hover:text-primary transition">
               Resume →
             </a>
           </div>
@@ -62,10 +51,13 @@ export default function HomeSection() {
       }}
     />
   </div>
+
 </div>
 
 
       </div>
+
     </section>
+    
   );
 }

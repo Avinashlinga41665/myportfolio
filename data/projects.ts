@@ -1,4 +1,5 @@
 // src/data/projects.ts
+import { FaReact } from "react-icons/fa";
 
 export type Project = {
   slug: string;
@@ -9,27 +10,30 @@ export type Project = {
   features: string[];
   images: string[];
   status: "demo" | "archived" | "live";
+  liveUrl?: string;
 };
 
 export const projects: Project[] = [
   {
-    slug: "business-website",
-    title: "Business Website (MVC)",
+    slug: "photography-website",
+    title: "Photography Website",
     shortDesc:
-      "Full-stack MVC demo website with authentication and database integration.",
+      "A modern photography portfolio website built with React and a headless CMS.",
     description:
-      "This demo project was built to simulate a real-world business website using ASP.NET MVC, focusing on authentication, database integration, and clean MVC architecture.",
-    tech: ["ASP.NET MVC", "SQL Server", "Bootstrap", "Razor"],
+      "This project is a real-world photography portfolio website designed to showcase work, services, and studio information. It is built using React and Next.js with Tailwind CSS for a clean and responsive UI. Content management is handled through Hygraph (Headless CMS), allowing easy updates without code changes. The project focuses on performance, scalability, and a smooth user experience.",
+    tech: ["React", "Next.js", "Tailwind CSS", "Hygraph CMS"],
     features: [
-      "Authentication & Authorization",
-      "Role-based dashboards",
-      "CRUD operations",
-      "MVC layered architecture",
+      "Fully responsive design for all screen sizes",
+      "Dynamic content management using Hygraph CMS",
+      "Optimized image galleries for photography showcase",
+      "Clean UI with smooth navigation and layout",
     ],
     images: [
-      "/projects/mvc-1.png",
-      "/projects/mvc-2.png",
-    ],
-    status: "demo",
+        "/projects/photography/project1.1.png",
+        "/projects/photography/project1.2.png",
+        "/projects/photography/project1.3.png",
+   ],
+    status: "live",
+    liveUrl: "https://demo-photography-website.vercel.app",
   },
 ];
