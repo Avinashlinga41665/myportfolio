@@ -33,7 +33,7 @@ export default function HomeSection() {
           </div>
 
   {/* About Preview */}
-  <div className="max-w-md mt-10 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/40 shadow-lg p-5">
+  <div className="max-w-md mt-12 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/40 shadow-lg p-5 transition hover:-translate-y-1 hover:shadow-lg">
     <p className="text-sm font-semibold text-foreground">About Me</p>
     <p className="mt-1 text-sm text-muted">3+ Years • Full-Stack • .NET</p>
     <p className="mt-1 text-sm text-muted">Backend APIs • Databases • UI</p>
