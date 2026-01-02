@@ -15,19 +15,15 @@ export default function AboutSection() {
           </p>
 
           <p className="text-muted text-lg leading-relaxed mb-5">
-            I’m Avinash, a developer who enjoys turning ideas into clean,
-            functional digital experiences.
+            I’m a full-stack software engineer with 3+ years of experience building reliable web, desktop, and mobile applications.
           </p>
 
           <p className="text-muted leading-relaxed mb-5">
-            I focus on building modern websites and applications that are
-            simple to use, performant, and designed with real users in mind.
+          I primarily work with the .NET ecosystem and SQL to design scalable backend APIs, while also creating clean and responsive user interfaces.
           </p>
 
           <p className="text-muted leading-relaxed">
-            Along with web development, I’ve also built backend systems,
-            desktop applications, and mobile apps — giving me a strong
-            understanding of how complete products work end to end.
+            I enjoy Building features end-to-end — from understanding the problem to delivering production-ready solutions. I learn fast through hands-on development, troubleshooting, and continuous experimentation, and I’m always focused on improving with every project I build.
           </p>
         </div>
 

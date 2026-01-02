@@ -31,15 +31,25 @@ export default function HomeSection() {
               Download Resume →
             </a>
           </div>
+
+  {/* About Preview */}
+  <div className="max-w-md mt-10 rounded-2xl bg-white/30 backdrop-blur-xl border border-white/40 shadow-lg p-5">
+    <p className="text-sm font-semibold text-foreground">About Me</p>
+    <p className="mt-1 text-sm text-muted">3+ Years • Full-Stack • .NET</p>
+    <p className="mt-1 text-sm text-muted">Backend APIs • Databases • UI</p>
+    <a href="#about" className="inline-flex items-center gap-1 mt-3 text-primary font-medium hover:translate-x-1 transition-transform">
+      Know more →
+    </a>
+  </div>
+
+
+
         </div>
 
        {/* RIGHT: IMAGE */}
 <div className="relative hidden lg:block pl-10">
 <div className="absolute right-[-10vw] h-full w-[50vw] flex items-center justify-center">
-    <img
-      src="/content.png"
-      alt="Avinash"
-      className="
+    <img src="/content.png" alt="Avinash" className="
         w-full
         h-[85vh]
         object-contain
