@@ -85,8 +85,8 @@ useEffect(() => {
             </li>
           </ul>
           <div className="hidden md:flex items-center gap-4 whitespace-nowrap">
-          <button onClick={() => router.push("/resume")} className="pl-10 py-2 rounded-lg bg-primary text-primary hover:opacity-90 hover:scale-105">View Resume</button>
-          <button onClick={() => goToSection("contact")} className="px-4 py-2 rounded-lg bg-primary text-primary hover:opacity-90 hover:scale-105">Let’s Talk</button>
+            <a href="/resume/Avinash_Linga_Software_Engineer.pdf"target="_blank" rel="noopener noreferrer" className="pl-10 px-4 py-2 rounded-lg bg-primary text-primary hover:opacity-90 hover:scale-105">View Resume</a>       
+            <button onClick={() => goToSection("contact")} className="px-4 py-2 rounded-lg bg-primary text-primary hover:opacity-90 hover:scale-105">Let’s Talk</button>
           </div>
            {/* Mobile Hamburger */}
             <button
@@ -110,11 +110,11 @@ useEffect(() => {
         </div>
 
         <nav className="flex flex-col gap-4 p-6 text-lg">
-          <button onClick={() => goToSection("home")} className="text-lg text-muted hover:text-foreground transition-colors">Home</button>
-          <button onClick={() => goToSection("about")} className="text-lg text-muted hover:text-foreground transition-colors">About</button>
-          <button onClick={() => goToSection("work")} className="text-lg text-muted hover:text-foreground transition-colors">Work</button>
-          <button onClick={() => router.push("/resume")} className="text-lg text-primary hover:underline transition-colors">Resume</button>
-        </nav>
+          <button onClick={() => {goToSection("home"); setOpen(false);}} className={`text-lg transition-colors ${active === "home" ? "text-foreground font-semibold" : "text-muted"}`}>Home</button>
+          <button onClick={() => {goToSection("about"); setOpen(false);}} className={`text-lg transition-colors ${active === "about" ? "text-foreground font-semibold" : "text-muted"}`}>About</button>
+          <button onClick={() => {goToSection("work"); setOpen(false);}} className={`text-lg transition-colors ${active === "work" ? "text-foreground font-semibold" : "text-muted"}`}>Work</button>
+        <a href="/resume/Avinash_Linga_Software_Engineer.pdf" target="_blank" rel="noopener noreferrer"onClick={() => setOpen(false)}className="text-lg text-muted hover:text-primary hover:underline transition-colors">Resume</a>       
+       </nav>
       </aside>
     </>
   );

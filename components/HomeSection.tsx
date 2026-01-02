@@ -27,7 +27,7 @@ export default function HomeSection() {
               View Work
             </a>
 
-            <a href="#resume" className="text-foreground font-medium hover:text-primary transition">
+            <a href="/resume/Avinash_Linga_Software_Engineer.pdf" download className="text-foreground font-medium hover:text-primary transition">
               Download Resume →
             </a>
           </div>
